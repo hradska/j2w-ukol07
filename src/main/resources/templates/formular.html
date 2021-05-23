@@ -11,38 +11,46 @@
 </head>
 <body>
 <div class="detail">
-    <form class="vizitka">
+    <form class="vizitka" th:action="@{/nova}" method="post" novalidate>
         <div class="row">
             <label for="jmeno">Jméno</label>
-            <input type="text" id="jmeno" name="jmeno" maxlength="100" required />
+            <input type="text" id="jmeno" th:field="${form.celeJmeno}" maxlength="100" required />
+            <div class="error" th:if="${#fields.hasErrors('form.celeJmeno')}" th:errors="${form.celeJmeno}"></div>
         </div>
         <div class="row">
             <label for="firma">Firma</label>
-            <input type="text" id="firma" name="firma" maxlength="100" required />
+            <input type="text" id="firma" th:field="${form.firma}" maxlength="100" required />
+            <div class="error" th:if="${#fields.hasErrors('form.firma')}" th:errors="${form.firma}"></div>
         </div>
         <div class="row">
             <label for="ulice">Ulice a čísla</label>
-            <input type="text" id="ulice" name="ulice" maxlength="100" required />
+            <input type="text" id="ulice" th:field="${form.ulice}" maxlength="100" required />
+            <div class="error" th:if="${#fields.hasErrors('form.ulice')}" th:errors="${form.ulice}"></div>
         </div>
         <div class="row">
             <label for="obec">Obec</label>
-            <input type="text" id="obec" name="obec" maxlength="100" required />
+            <input type="text" id="obec" th:field="${form.obec}" maxlength="100" required />
+            <div class="error" th:if="${#fields.hasErrors('form.obec')}" th:errors="${form.obec}"></div>
         </div>
         <div class="row">
             <label for="psc">PSČ</label>
-            <input type="text" id="psc" name="psc" minlength="5" maxlength="5" pattern="[0-9]{5}" required />
+            <input type="text" id="psc" th:field="${form.psc}" minlength="5" maxlength="5" pattern="[0-9]{5}" required />
+            <div class="error" th:if="${#fields.hasErrors('form.psc')}" th:errors="${form.psc}"></div>
         </div>
         <div class="row">
             <label for="email">E-mail <small>(volitelný)</small></label>
-            <input type="email" id="email" name="email" maxlength="100" />
+            <input type="email" id="email" th:field="${form.email}" maxlength="100" />
+            <div class="error" th:if="${#fields.hasErrors('form.email')}" th:errors="${form.email}"></div>
         </div>
         <div class="row">
             <label for="telefon">Telefon <small>(volitelný)</small></label>
-            <input type="tel" id="telefon" name="telefon"  maxlength="100"  />
+            <input type="tel" id="telefon" th:field="${form.telefon}"  maxlength="100"  />
+            <div class="error" th:if="${#fields.hasErrors('form.telefon')}" th:errors="${form.telefon}"></div>
         </div>
         <div class="row">
             <label for="web">Web <small>(volitelný)</small></label>
-            <input type="url" id="web" name="web" maxlength="100"  />
+            <input type="url" id="web" th:field="${form.web}" maxlength="100"  />
+            <div class="error" th:if="${#fields.hasErrors('form.web')}" th:errors="${form.web}"></div>
         </div>
         <div class="form-controls">
             <button type="submit">Odeslat</button>
@@ -55,3 +63,4 @@
 </div>
 </body>
 </html>
+
